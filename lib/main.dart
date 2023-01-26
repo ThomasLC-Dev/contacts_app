@@ -1,6 +1,5 @@
 import 'package:contacts_app/login.dart';
 import 'package:flutter/material.dart';
-import 'package:contacts_app/add_user.dart';
 
 void main() {
   runApp(const MyApp());

@@ -78,7 +78,10 @@ class _HomeState extends State<Home>{
           ),
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add, size: 40),
-          onPressed: () => {},
+          onPressed: () => {
+          // Navigator.of(context).push(MaterialPageRoute(
+          //   builder: (context) => HallOfFame(resultList: _gameResults)));
+          },
         ),
       )
     );
