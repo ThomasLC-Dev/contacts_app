@@ -64,7 +64,17 @@ class _HomeState extends State<Home>{
             fontSize: 18
           ),
         ),
-        trailing: const Icon(Icons.manage_accounts, size: 40),
+        trailing: FloatingActionButton(
+          child: const Icon(Icons.manage_accounts, size: 40),
+          onPressed: () => {
+            // Navigator.of(context)
+            //   .push(
+            //     MaterialPageRoute(
+            //       builder: (context) => const MyForm()
+            //   )
+            // )
+          },
+        )
       ),
     );
   }
