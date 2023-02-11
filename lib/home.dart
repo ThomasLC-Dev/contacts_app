@@ -67,12 +67,12 @@ class _HomeState extends State<Home>{
         trailing: FloatingActionButton(
           child: const Icon(Icons.manage_accounts, size: 40),
           onPressed: () => {
-            // Navigator.of(context)
-            //   .push(
-            //     MaterialPageRoute(
-            //       builder: (context) => const MyForm()
-            //   )
-            // )
+            Navigator.of(context)
+              .push(
+                MaterialPageRoute(
+                  builder: (context) => const MyForm()
+              )
+            )
           },
         )
       ),
