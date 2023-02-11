@@ -66,6 +66,10 @@ class _HomeState extends State<Home>{
     );
   }
 
+  void _createContact() {
+    print("Contact créé.");
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -103,12 +107,16 @@ class MyForm extends StatefulWidget {
 
 class MyFormState extends State<MyForm> {
   final _formKey = GlobalKey<FormState>();
+
+    void _createContact() {
+      print("Contact créé.");
+    }
   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Page ajout contact')),
-      body: Center(child: 
+      appBar: AppBar(title: const Text('Ajouter un contact')),
+      body: Column(children: [
         Form(child: 
         //key: _formKey,
           Column(
@@ -134,36 +142,20 @@ class MyFormState extends State<MyForm> {
                 labelText: 'Numéro de téléphone',
                 hintText: 'Entrez le numéro de téléphone du contact',
                 border: OutlineInputBorder()),
-              // validator: (value) {
-              //   if(value.isEmpty) {
-              //     return "Veuillez saisir un numéro de téléphone";
-              //   }
-              //   return null;
-              // },
             )
           ]),
-        )
-      ),
+        ),
+        Row(children: const [
+          ElevatedButton(
+            onPressed: null,
+            child: Text('Valider'),
+          ),
+          ElevatedButton(
+            onPressed: null,
+            child: Text('Annuler'),
+          ),
+        ])
+      ]),
     );
-    // return Form(
-    //   key: _formKey,
-    //   child: Column(
-    //     crossAxisAlignment: CrossAxisAlignment.start,
-    //     children: [
-    //     TextFormField(
-    //       maxLength: 25,
-    //       decoration: const InputDecoration(
-    //         labelText: 'Nom',
-    //         hintText: 'Entrez le nom du contact',
-    //         border: OutlineInputBorder()),
-    //       validator: (value) {
-    //         if(value!.isEmpty) {
-    //           return 'Veuillez saisir le nom de votre contact';
-    //         }
-    //         return null;
-    //       },
-    //     )
-    //   ]),
-    // );
   }
 }
