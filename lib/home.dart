@@ -79,11 +79,91 @@ class _HomeState extends State<Home>{
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add, size: 40),
           onPressed: () => {
-          // Navigator.of(context).push(MaterialPageRoute(
-          //   builder: (context) => HallOfFame(resultList: _gameResults)));
+            Navigator.of(context)
+              .push(
+                MaterialPageRoute(
+                  builder: (context) => MyForm()
+              )
+            )
           },
         ),
       )
     );
+  }
+}
+
+class MyForm extends StatefulWidget {
+  const MyForm({super.key});
+
+  @override
+  MyFormState createState() {
+    return MyFormState();
+  }
+}
+
+class MyFormState extends State<MyForm> {
+  final _formKey = GlobalKey<FormState>();
+  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Page ajout contact')),
+      body: Center(child: 
+        Form(child: 
+        //key: _formKey,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+            TextFormField(
+              maxLength: 25,
+              decoration: const InputDecoration(
+                labelText: 'Nom',
+                hintText: 'Entrez le nom du contact',
+                border: OutlineInputBorder()),
+            ),
+            TextFormField(
+              maxLength: 25,
+              decoration: const InputDecoration(
+                labelText: 'Prénom',
+                hintText: 'Entrez le prénom du contact',
+                border: OutlineInputBorder()),
+            ),
+            TextFormField(
+              maxLength: 10,
+              decoration: const InputDecoration(
+                labelText: 'Numéro de téléphone',
+                hintText: 'Entrez le numéro de téléphone du contact',
+                border: OutlineInputBorder()),
+              // validator: (value) {
+              //   if(value.isEmpty) {
+              //     return "Veuillez saisir un numéro de téléphone";
+              //   }
+              //   return null;
+              // },
+            )
+          ]),
+        )
+      ),
+    );
+    // return Form(
+    //   key: _formKey,
+    //   child: Column(
+    //     crossAxisAlignment: CrossAxisAlignment.start,
+    //     children: [
+    //     TextFormField(
+    //       maxLength: 25,
+    //       decoration: const InputDecoration(
+    //         labelText: 'Nom',
+    //         hintText: 'Entrez le nom du contact',
+    //         border: OutlineInputBorder()),
+    //       validator: (value) {
+    //         if(value!.isEmpty) {
+    //           return 'Veuillez saisir le nom de votre contact';
+    //         }
+    //         return null;
+    //       },
+    //     )
+    //   ]),
+    // );
   }
 }
