@@ -64,7 +64,7 @@ class _HomeState extends State<Home>{
             fontSize: 18
           ),
         ),
-        //trailing: const Icon(Icons.manage_accounts, size: 40),
+        trailing: const Icon(Icons.manage_accounts, size: 40),
       ),
     );
   }
