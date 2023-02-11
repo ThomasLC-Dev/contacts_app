@@ -10,33 +10,35 @@ class Home extends StatefulWidget{
 
 class _HomeState extends State<Home>{
   List<Contact> contacts = [
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
+    Contact("Prénom", "Nom", "0606060606"),
+    Contact("Prénom", "Nom", "0606060606"),
+    Contact("Prénom", "Nom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
+    // Contact("Nom", "Prénom", "0606060606"),
   ];
 
   Widget generateContactList(BuildContext context, int index){
@@ -52,7 +54,7 @@ class _HomeState extends State<Home>{
         title: Text(
           "${contacts[index].firstname} ${contacts[index].lastname}",
           style: const TextStyle(
-            fontSize: 25,
+            fontSize: 20,
             fontWeight: FontWeight.bold
           ),
         ),
@@ -62,12 +64,9 @@ class _HomeState extends State<Home>{
             fontSize: 18
           ),
         ),
+        //trailing: const Icon(Icons.manage_accounts, size: 40),
       ),
     );
-  }
-
-  void _createContact() {
-    print("Contact créé.");
   }
 
   @override
@@ -86,7 +85,7 @@ class _HomeState extends State<Home>{
             Navigator.of(context)
               .push(
                 MaterialPageRoute(
-                  builder: (context) => MyForm()
+                  builder: (context) => const MyForm()
               )
             )
           },
@@ -108,7 +107,7 @@ class MyForm extends StatefulWidget {
 class MyFormState extends State<MyForm> {
   final _formKey = GlobalKey<FormState>();
 
-    void _createContact() {
+    _createContact() {
       print("Contact créé.");
     }
   
@@ -145,13 +144,20 @@ class MyFormState extends State<MyForm> {
             )
           ]),
         ),
-        Row(children: const [
+        Row(children: [
           ElevatedButton(
-            onPressed: null,
-            child: Text('Valider'),
+            onPressed: _createContact(),
+            child: const Text('Valider'),
           ),
           ElevatedButton(
-            onPressed: null,
+            onPressed: () => {
+            Navigator.of(context)
+              .push(
+                MaterialPageRoute(
+                  builder: (context) => const Home()
+                )
+              )
+            },
             child: Text('Annuler'),
           ),
         ])
