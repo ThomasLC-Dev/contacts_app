@@ -82,14 +82,7 @@ class _HomeState extends State<Home>{
             FloatingActionButton(
               backgroundColor: Colors.green,
               child: const Icon(Icons.phone, size: 40),
-              onPressed: () => { null
-                // Navigator.of(context)
-                //   .push(
-                //     MaterialPageRoute(
-                //       builder: (context) => const MyForm()
-                //   )
-                // )
-              },
+              onPressed: _launchURL,
             ),
           ],
         )
@@ -108,6 +101,7 @@ class _HomeState extends State<Home>{
     }
     else {
       throw 'Could not launch $url';
+      print("Impossible de passer l'appel");
     }
   }
 
