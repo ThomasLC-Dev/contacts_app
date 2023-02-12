@@ -64,16 +64,33 @@ class _HomeState extends State<Home>{
             fontSize: 18
           ),
         ),
-        trailing: FloatingActionButton(
-          child: const Icon(Icons.manage_accounts, size: 40),
-          onPressed: () => {
-            Navigator.of(context)
-              .push(
-                MaterialPageRoute(
-                  builder: (context) => const MyForm()
-              )
-            )
-          },
+        trailing: Wrap(
+          spacing: 10,
+          children: [
+            FloatingActionButton(
+              child: const Icon(Icons.manage_accounts, size: 40),
+              onPressed: () => {
+                Navigator.of(context)
+                  .push(
+                    MaterialPageRoute(
+                      builder: (context) => const MyForm()
+                  )
+                )
+              },
+            ),
+            FloatingActionButton(
+              backgroundColor: Colors.green,
+              child: const Icon(Icons.phone, size: 40),
+              onPressed: () => {
+                Navigator.of(context)
+                  .push(
+                    MaterialPageRoute(
+                      builder: (context) => const MyForm()
+                  )
+                )
+              },
+            ),
+          ],
         )
       ),
     );
