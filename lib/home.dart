@@ -1,5 +1,6 @@
 import 'package:contacts_app/models/contact.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget{
   const Home({super.key});
@@ -94,6 +95,20 @@ class _HomeState extends State<Home>{
         )
       ),
     );
+  }
+
+  void _calling() {
+    _launchURL();
+  }
+
+  _launchURL() async {
+    const url = 'tel:+0606060606';
+    if (await canLaunch(url)) {
+      await launch(url);
+    }
+    else {
+      throw 'Could not launch $url';
+    }
   }
 
   @override
