@@ -43,6 +43,8 @@ class _HomeState extends State<Home>{
   ];
 
   Widget generateContactList(BuildContext context, int index){
+    final numDeTel = '+0606060606';
+
     return Card(
       child: ListTile(
         leading: const CircleAvatar(
@@ -81,28 +83,15 @@ class _HomeState extends State<Home>{
             ),
             FloatingActionButton(
               backgroundColor: Colors.green,
+              onPressed: () async {
+                launch('tel://$numDeTel');
+              },
               child: const Icon(Icons.phone, size: 40),
-              onPressed: _launchURL,
             ),
           ],
         )
       ),
     );
-  }
-
-  void _calling() {
-    _launchURL();
-  }
-
-  _launchURL() async {
-    const url = 'tel:+0606060606';
-    if (await canLaunch(url)) {
-      await launch(url);
-    }
-    else {
-      throw 'Could not launch $url';
-      print("Impossible de passer l'appel");
-    }
   }
 
   @override
