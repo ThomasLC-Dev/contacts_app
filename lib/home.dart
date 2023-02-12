@@ -139,7 +139,7 @@ class MyFormState extends State<MyForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Ajouter un contact')),
+      appBar: AppBar(title: const Text('Ajouter/Modifier un contact')),
       body: Column(children: [
         Form(child: 
         //key: _formKey,
@@ -185,6 +185,14 @@ class MyFormState extends State<MyForm> {
             },
             child: const Text('Annuler'),
           ),
+          const Spacer(),
+          ElevatedButton(
+            onPressed: null,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.red,
+            ),
+            child: const Text('Supprimer le contact'),
+          )
         ])
       ]),
     );
