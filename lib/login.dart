@@ -13,10 +13,10 @@ class _LoginState extends State<Login>{
   String _number = "";
   String _errorMessage = "";
 
-  login(BuildContext context){
+  _login(BuildContext context){
     if(_number.length == 10){
       _saveNumber();
-      navigateToHomePage(context);
+      _navigateToHomePage(context);
     }
     else{
       setState(() {
@@ -25,7 +25,7 @@ class _LoginState extends State<Login>{
     }
   }
 
-  navigateToHomePage(context){
+  _navigateToHomePage(context){
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Home()));
   }
 
@@ -47,7 +47,7 @@ class _LoginState extends State<Login>{
 
   _checkNumberAlreadyStore(context) async{
     if(await _getNumber() != ""){
-      navigateToHomePage(context);
+      _navigateToHomePage(context);
     }
   }
 
@@ -93,7 +93,7 @@ class _LoginState extends State<Login>{
                     height: 40,
                     margin: const EdgeInsets.symmetric(horizontal:70, vertical: 70),
                     child: ElevatedButton(
-                      onPressed: () => login(context),
+                      onPressed: () => _login(context),
                       child: const Text(
                         "Se connecter",
                         style: TextStyle(

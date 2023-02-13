@@ -1,3 +1,8 @@
+import 'dart:developer';
+
+import 'package:contacts_app/add-contact.dart';
+import 'package:contacts_app/db/contact-data.dart';
+import 'package:contacts_app/details-contact.dart';
 import 'package:contacts_app/models/contact.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -10,48 +15,24 @@ class Home extends StatefulWidget{
 }
 
 class _HomeState extends State<Home>{
-  List<Contact> contacts = [
-    Contact("Prénom", "Nom", "0606060606"),
-    Contact("Prénom", "Nom", "0606060606"),
-    Contact("Prénom", "Nom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-    Contact("Nom", "Prénom", "0606060606"),
-  ];
+  var contactData = ContactData();
+
+  List<Contact> contacts = [];
+
+  _navigateToAddContactPage(context){
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const AddContact()));
+  }
+
+  _navigateToDetailsContactPage(context, int id){
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DetailsContact(contactId: id)));
+  }
 
   Widget generateContactList(BuildContext context, int index){
-    final numDeTel = '+0606060606';
-
     return Card(
       child: ListTile(
         leading: const CircleAvatar(
           radius: 30,
-          backgroundImage: NetworkImage(
-            "https://i.picsum.photos/id/9/250/250.jpg?hmac=tqDH5wEWHDN76mBIWEPzg1in6egMl49qZeguSaH9_VI",
-          ),
+          backgroundImage: AssetImage('assets/user.png'),
         ),
         contentPadding: const EdgeInsets.all(10),
         title: Text(
@@ -72,19 +53,12 @@ class _HomeState extends State<Home>{
           children: [
             FloatingActionButton(
               child: const Icon(Icons.manage_accounts, size: 40),
-              onPressed: () => {
-                Navigator.of(context)
-                  .push(
-                    MaterialPageRoute(
-                      builder: (context) => const MyForm()
-                  )
-                )
-              },
+              onPressed: () => _navigateToDetailsContactPage(context, contacts[index].id!),
             ),
             FloatingActionButton(
               backgroundColor: Colors.green,
               onPressed: () async {
-                launch('tel://$numDeTel');
+                launchUrl(Uri.parse('tel://${contacts[index].number}'));
               },
               child: const Icon(Icons.phone, size: 40),
             ),
@@ -100,101 +74,25 @@ class _HomeState extends State<Home>{
       length: 2,
       child: Scaffold(
         appBar: AppBar(),
-        body: ListView.builder(
-            itemCount: contacts.length,
-            itemBuilder: generateContactList
-          ),
-        floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add, size: 40),
-          onPressed: () => {
-            Navigator.of(context)
-              .push(
-                MaterialPageRoute(
-                  builder: (context) => const MyForm()
-              )
-            )
+        body: FutureBuilder(
+          future: contactData.getAllContacts(),
+          builder: (context, snapshot){
+            if(snapshot.hasData && snapshot.data!.isNotEmpty){
+              contacts = snapshot.data!;
+              return ListView.builder(itemCount: contacts.length, itemBuilder: generateContactList);
+            }
+            else{
+              return const Center(
+                child: Text("Aucun contact"),
+              );
+            }
           },
         ),
-      )
-    );
-  }
-}
-
-class MyForm extends StatefulWidget {
-  const MyForm({super.key});
-
-  @override
-  MyFormState createState() {
-    return MyFormState();
-  }
-}
-
-class MyFormState extends State<MyForm> {
-  final _formKey = GlobalKey<FormState>();
-
-    _createContact() {
-      print("Contact créé.");
-    }
-  
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Ajouter/Modifier un contact')),
-      body: Column(children: [
-        Form(child: 
-        //key: _formKey,
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-            TextFormField(
-              maxLength: 25,
-              decoration: const InputDecoration(
-                labelText: 'Nom',
-                hintText: 'Entrez le nom du contact',
-                border: OutlineInputBorder()),
-            ),
-            TextFormField(
-              maxLength: 25,
-              decoration: const InputDecoration(
-                labelText: 'Prénom',
-                hintText: 'Entrez le prénom du contact',
-                border: OutlineInputBorder()),
-            ),
-            TextFormField(
-              maxLength: 10,
-              decoration: const InputDecoration(
-                labelText: 'Numéro de téléphone',
-                hintText: 'Entrez le numéro de téléphone du contact',
-                border: OutlineInputBorder()),
-            )
-          ]),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add, size: 40),
+          onPressed: () => _navigateToAddContactPage(context),
         ),
-        Row(children: [
-          ElevatedButton(
-            onPressed: _createContact(),
-            child: const Text('Valider'),
-          ),
-          ElevatedButton(
-            onPressed: () => {
-            Navigator.of(context)
-              .push(
-                MaterialPageRoute(
-                  builder: (context) => const Home()
-                )
-              )
-            },
-            child: const Text('Annuler'),
-          ),
-          const Spacer(),
-          ElevatedButton(
-            onPressed: null,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
-            ),
-            child: const Text('Supprimer le contact'),
-          )
-        ])
-      ]),
+      )
     );
   }
 }
