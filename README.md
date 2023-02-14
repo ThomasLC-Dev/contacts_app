@@ -36,7 +36,7 @@ Les informations du contact s'affichent et sont modifiables.
 ![image](https://user-images.githubusercontent.com/114923734/218693932-c5d83718-8f47-4ccf-8f60-d5590bff66d4.png)  
 - Le bouton "Supprimer le contact" supprime le contact de la liste.  
 
-## Appel
+### Appel
 Pour appeler le contact enregistré, il suffit d'appuyer sur le bouton vert tout à droite :  
 
 ![image](https://user-images.githubusercontent.com/114923734/218709534-11fde38d-4cc3-4ed3-9b81-8dd6237f6a75.png)  
@@ -44,7 +44,7 @@ On peut ainsi appeler le numéro enregistré grâce à l'application "Appels" in
 
 ![image](https://user-images.githubusercontent.com/114923734/218709931-d69ae883-069a-46fe-860e-7c665b198083.png)  
 
-## Barre de recherche
+### Barre de recherche
 Une barre de recherche permettant de filtrer les contacts se situe au-dessus de la liste des contacts :  
 
 ![image](https://user-images.githubusercontent.com/114923734/218753122-8ac1e97a-f560-4e08-92c9-4f941452205f.png)
@@ -57,6 +57,9 @@ Pour afficher le résultat de la recherche, on clique sur la loupe dans le clavi
 
 ![image](https://user-images.githubusercontent.com/114923734/218753923-907d1093-b2e4-437b-8c41-53af271909e9.png)
 
+Deux autres icônes sont cliquables :
+- La croix sert à effacer le contenu de la barre.
+- La flèche pointant vers la gauche sert à revenir à la liste complète des contacts.
 
 ## Éventuelles poursuites
 - Possibilité d'ajouter une photo pour chaque contact, et de la modifier si besoin.  
