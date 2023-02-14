@@ -9,7 +9,7 @@ L'application est développée en Dart version 2.19.2, avec le SDK Flutter versi
 ### Ajout d'un contact
 La fenêtre de l'application au premier démarrage se présente ainsi :  
 
-![image](https://user-images.githubusercontent.com/114923734/218689454-34ff6854-8ce2-4597-825b-9a6c947047de.png)  
+![image](https://user-images.githubusercontent.com/114923734/218749272-7c3ce2f5-41e8-4555-8fbf-d8f2ec45b7c8.png)
 
 Pour ajouter un contact, il suffit de cliquer sur le bouton "+" en bas à droite.  
 L'utilisateur renseigne ensuite le nom, prénom et numéro de téléphone du contact :  
@@ -19,7 +19,7 @@ L'utilisateur renseigne ensuite le nom, prénom et numéro de téléphone du con
 - Le bouton "Annuler" n'enregistre pas les informations saisies et l'utilisateur/utilisatrice revient sur la page de départ.
 - Le bouton "Valider" enregistre les informations saisies comme suit :  
 
-![image](https://user-images.githubusercontent.com/114923734/218690620-dd244a55-a998-484b-8c1c-5deaec08e70b.png)
+![image](https://user-images.githubusercontent.com/114923734/218749631-e83bffea-426d-4f7c-a3ec-26e072eb6cb0.png)
 
 ### Modification/suppression d'un contact
 Pour modifier ou supprimer un contact, il faut cliquer sur le bouton bleu à droite des informations du contact :  
@@ -42,7 +42,10 @@ Pour appeler le contact enregistré, il suffit d'appuyer sur le bouton vert tout
 ![image](https://user-images.githubusercontent.com/114923734/218709534-11fde38d-4cc3-4ed3-9b81-8dd6237f6a75.png)  
 On peut ainsi appeler le numéro enregistré grâce à l'application "Appels" installée par défaut sur l'appareil de l'utilisateur/utilisatrice :  
 
-![image](https://user-images.githubusercontent.com/114923734/218709931-d69ae883-069a-46fe-860e-7c665b198083.png)
+![image](https://user-images.githubusercontent.com/114923734/218709931-d69ae883-069a-46fe-860e-7c665b198083.png)  
+
+## Barre de recherche
+
 
 ## Éventuelles poursuites
 - Possibilité d'ajouter une photo pour chaque contact, et de la modifier si besoin.  
