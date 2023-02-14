@@ -74,7 +74,7 @@ class _HomeState extends State<Home>{
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Search'),
+          title: const Text('Rechercher un contact'),
           actions: [
             IconButton(
               icon: const Icon(Icons.search),
