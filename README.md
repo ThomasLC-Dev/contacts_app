@@ -45,6 +45,12 @@ On peut ainsi appeler le numéro enregistré grâce à l'application "Appels" in
 ![image](https://user-images.githubusercontent.com/114923734/218709931-d69ae883-069a-46fe-860e-7c665b198083.png)  
 
 ## Barre de recherche
+Une barre de recherche permettant de filtrer les contacts se situe au-dessus de la liste des contacts :  
+
+![image](https://user-images.githubusercontent.com/114923734/218750997-a9c46718-a803-4751-98e7-b563ae383838.png)
+
+
+Pour rechercher un contact, il suffit de cliquer sur l'icône en forme de loupe tout en haut à droite. Voici ce qui s'affiche lorsque l'on clique dessus
 
 
 ## Éventuelles poursuites
