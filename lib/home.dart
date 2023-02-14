@@ -81,7 +81,7 @@ class _HomeState extends State<Home>{
               onPressed: () {
                 showSearch(
                   context: context,
-                  delegate: MySearchDelegate(),
+                  delegate: MySearchDelegate(contacts),
                 );
               },
             )
@@ -111,6 +111,57 @@ class _HomeState extends State<Home>{
 }
 
 class MySearchDelegate extends SearchDelegate {
+  final List<Contact> contacts;
+  late List<Contact> filteredContacts;
+
+  MySearchDelegate(this.contacts);
+
+  _navigateToDetailsContactPage(context, int id){
+    close(context, null);
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DetailsContact(contactId: id)));
+  }
+
+  Widget generateFilteredContactList(BuildContext context, int index){
+    return Card(
+      child: ListTile(
+        leading: const CircleAvatar(
+          radius: 30,
+          backgroundImage: AssetImage('assets/user.png'),
+        ),
+        contentPadding: const EdgeInsets.all(10),
+        title: Text(
+          "${filteredContacts[index].firstname} ${filteredContacts[index].lastname}",
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold
+          ),
+        ),
+        subtitle: Text(
+          filteredContacts[index].number,
+          style: const TextStyle(
+            fontSize: 18
+          ),
+        ),
+        trailing: Wrap(
+          spacing: 10,
+          children: [
+            FloatingActionButton(
+              child: const Icon(Icons.manage_accounts, size: 40),
+              onPressed: () => _navigateToDetailsContactPage(context, contacts[index].id!),
+            ),
+            FloatingActionButton(
+              backgroundColor: Colors.green,
+              onPressed: () async {
+                launchUrl(Uri.parse('tel://${filteredContacts[index].number}'));
+              },
+              child: const Icon(Icons.phone, size: 40),
+            ),
+          ],
+        )
+      ),
+    );
+  }
+
   @override
   Widget? buildLeading(BuildContext context) => IconButton(
     icon: const Icon(Icons.arrow_back),
@@ -128,8 +179,14 @@ class MySearchDelegate extends SearchDelegate {
   ];
   
   @override
-  Widget buildResults(BuildContext context) => Container();
+  Widget buildResults(BuildContext context){
+    filteredContacts = contacts.where((contact) => (contact.firstname.toLowerCase().contains(query.toLowerCase()) || contact.lastname.toLowerCase().contains(query.toLowerCase()))).toList();
+    return ListView.builder(itemCount: filteredContacts.length, itemBuilder: generateFilteredContactList);
+  }
   
   @override
-  Widget buildSuggestions(BuildContext context) => Container();
+  Widget buildSuggestions(BuildContext context){
+    filteredContacts = contacts;
+    return ListView.builder(itemCount: filteredContacts.length, itemBuilder: generateFilteredContactList);
+  }
 }
