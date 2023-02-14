@@ -3,7 +3,7 @@ Application de répertoire de contacts téléphoniques, développée en Dart ave
 
 ## Description
 Le projet suivant cherche à reproduire une application de type "Contacts" ou "Répertoire" qui liste l'ensemble des contacts enregistrés par l'utilisateur/utilisatrice.  
-L'application est développée en Dart version 2.19.2, avec le SDK Flutter version 3.7.3, à l'aide de l'IDE Visual Studio Code.
+L'application est développée en Dart version 2.19.2, avec le SDK Flutter version 3.7.3, à l'aide des IDEs Visual Studio Code et Android Studio (création émulateur).
 
 ## Fonctionnalités
 ### Ajout d'un contact
@@ -35,3 +35,19 @@ Les informations du contact s'affichent et sont modifiables.
 
 ![image](https://user-images.githubusercontent.com/114923734/218693932-c5d83718-8f47-4ccf-8f60-d5590bff66d4.png)  
 - Le bouton "Supprimer le contact" supprime le contact de la liste.
+
+## Éventuelles poursuites
+- Possibilité d'ajouter une photo pour chaque contact, et de la modifier si besoin.  
+
+## Installation
+Lien d'un tutoriel pour installer Dart et Flutter :  
+https://pythonforge.com/installer-flutter-dart-et-android-studio/
+
+## Exécution
+Exécuter le fichier home.dart sur un émulateur ou sur un navigateur (sélectionnez le navigateur de votre choix dans la partie indiquée de la capture d'écran ci-dessous) :  
+
+![image](https://user-images.githubusercontent.com/114923734/218698527-a45b23b8-56e7-4f78-8a16-ee7df4e7b79a.png)  
+(Capture d'écran Visual Studio Code)
+
+## Auteurs
+Thomas LE CORVEC et Timothée GAROT
