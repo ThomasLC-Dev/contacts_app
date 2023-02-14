@@ -34,7 +34,15 @@ Les informations du contact s'affichent et sont modifiables.
 - Le bouton "Valider" enregistre les modifications :  
 
 ![image](https://user-images.githubusercontent.com/114923734/218693932-c5d83718-8f47-4ccf-8f60-d5590bff66d4.png)  
-- Le bouton "Supprimer le contact" supprime le contact de la liste.
+- Le bouton "Supprimer le contact" supprime le contact de la liste.  
+
+## Appel
+Pour appeler le contact enregistré, il suffit d'appuyer sur le bouton vert tout à droite :  
+
+![image](https://user-images.githubusercontent.com/114923734/218709534-11fde38d-4cc3-4ed3-9b81-8dd6237f6a75.png)  
+On peut ainsi appeler le numéro enregistré grâce à l'application "Appels" installée par défaut sur l'appareil de l'utilisateur/utilisatrice :  
+
+![image](https://user-images.githubusercontent.com/114923734/218709931-d69ae883-069a-46fe-860e-7c665b198083.png)
 
 ## Éventuelles poursuites
 - Possibilité d'ajouter une photo pour chaque contact, et de la modifier si besoin.  
