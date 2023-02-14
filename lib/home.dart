@@ -73,7 +73,20 @@ class _HomeState extends State<Home>{
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: const Text('Search'),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.search),
+              onPressed: () {
+                showSearch(
+                  context: context,
+                  delegate: MySearchDelegate(),
+                );
+              },
+            )
+          ]
+        ),
         body: FutureBuilder(
           future: contactData.getAllContacts(),
           builder: (context, snapshot){
@@ -95,4 +108,28 @@ class _HomeState extends State<Home>{
       )
     );
   }
+}
+
+class MySearchDelegate extends SearchDelegate {
+  @override
+  Widget? buildLeading(BuildContext context) => IconButton(
+    icon: const Icon(Icons.arrow_back),
+    onPressed: () => close(context, null),
+  );
+  
+  @override
+  List<Widget>? buildActions(BuildContext context) => [
+    IconButton(
+      icon: const Icon(Icons.clear),
+      onPressed: () {
+        query = '';
+      },
+    )
+  ];
+  
+  @override
+  Widget buildResults(BuildContext context) => Container();
+  
+  @override
+  Widget buildSuggestions(BuildContext context) => Container();
 }
