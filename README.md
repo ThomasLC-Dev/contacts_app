@@ -24,7 +24,7 @@ L'utilisateur renseigne ensuite le nom, prénom et numéro de téléphone du con
 ### Modification/suppression d'un contact
 Pour modifier ou supprimer un contact, il faut cliquer sur le bouton bleu à droite des informations du contact :  
 
-![image](https://user-images.githubusercontent.com/114923734/218692263-07d2cc8f-71f4-431b-b91b-f3a8f2b8d322.png)  
+![image](https://user-images.githubusercontent.com/114923734/218751747-b1ac676b-408b-4830-b16a-012b618a6438.png)  
 
 Les informations du contact s'affichent et sont modifiables.  
 
@@ -47,10 +47,15 @@ On peut ainsi appeler le numéro enregistré grâce à l'application "Appels" in
 ## Barre de recherche
 Une barre de recherche permettant de filtrer les contacts se situe au-dessus de la liste des contacts :  
 
-![image](https://user-images.githubusercontent.com/114923734/218750997-a9c46718-a803-4751-98e7-b563ae383838.png)
+![image](https://user-images.githubusercontent.com/114923734/218753122-8ac1e97a-f560-4e08-92c9-4f941452205f.png)
 
+Pour rechercher un contact, il suffit de cliquer sur l'icône en forme de loupe tout en haut à droite :  
 
-Pour rechercher un contact, il suffit de cliquer sur l'icône en forme de loupe tout en haut à droite. Voici ce qui s'affiche lorsque l'on clique dessus
+![image](https://user-images.githubusercontent.com/114923734/218753643-44a3fe32-6010-42f8-bd04-4abe1129889c.png)
+
+Pour afficher le résultat de la recherche, on clique sur la loupe dans le clavier :  
+
+![image](https://user-images.githubusercontent.com/114923734/218753923-907d1093-b2e4-437b-8c41-53af271909e9.png)
 
 
 ## Éventuelles poursuites
